@@ -1,7 +1,11 @@
-# ST4GNUM — Dřevostavby Plzeňsko (v1 landing page)
+# STAGNUM — stavební firma Plzeň (landing page)
 
-One-page prezentační web pro ST4GNUM s.r.o. — dřevostavby na klíč, rekonstrukce bytů a zděné stavby.
-Čisté HTML + CSS + vanilla JS (GSAP pro animace), žádný build krok.
+One-page prezentační web pro STAGNUM s.r.o. — dřevostavby a zděné domy na klíč,
+rekonstrukce bytů (+ instalatérské práce). Čisté HTML + CSS + vanilla JS
+(GSAP + Lenis pro animace), žádný build krok. Vše lokálně → funguje offline.
+
+Každá hlavní služba má vlastní hero na celoplošné vizualizaci (dle feedbacku klienta),
+menu „Služby" je rozbalovací (dřevostavby / zděné domy / rekonstrukce / instalatérina).
 
 ## Lokální spuštění
 
@@ -36,21 +40,29 @@ css/fonts.css       – lokální @font-face (Poppins + Inter, latin + latin-ext
 fonts/              – woff2 soubory (web funguje offline)
 js/vendor/          – GSAP, ScrollTrigger, Lenis (lokálně, bez CDN)
 js/iso-house.js     – izometrický SVG dům (8 vrstev = fází stavby)
-js/main.js          – animace (GSAP), kalkulačka, formulář, video
-media/rekonstrukce-bytu.mp4    – plné video před/po (H.264 540p, hraje v lightboxu)
+js/main.js          – animace, kalkulačka, dropdown menu, přepínač dřevo/zděný, formulář, video
+media/viz/          – vizualizace na pozadí hero sekcí (stock placeholdery, Pexels)
+media/rekonstrukce-bytu.mp4    – plné video před/po klienta (hraje v lightboxu)
 media/rekonstrukce-nahled.mp4  – odlehčený náhled do karty (6 MB)
 media/poster.jpg               – poster náhledu (video se načítá až při zobrazení)
 ```
 
-## TODO-KLIENT (placeholdery — hledej komentář `TODO-KLIENT` v kódu)
+## Sekce webu
 
-- [ ] Čísla v trust stripu (roky zkušeností, počet realizací, dojezd km)
-- [ ] Fotky realizací (dřevostavba, zděná stavba) — zatím gradientové placeholdery
-- [ ] Sazba kalkulačky — konstanta `RATE_PER_M2` v `js/main.js` (teď ilustračních 38 000 Kč/m²)
-- [ ] Napojení formuláře — `js/main.js`, sekce „Formulář → toast" (lead tabulka / e-mail / serverless)
+Hero → Služby intro → **Dřevostavby** (hero, tmavá) → **Zděné domy** (hero, světlá) →
+**Rekonstrukce** (hero + postup + video před/po + reference) → Kalkulačka →
+Animace stavby (přepínač dřevo/zděný) → Proč my + partneři → Realizace → Kontakt (formulář) → Instalace.
+
+## TODO-KLIENT (placeholdery — hledej `TODO-KLIENT` / štítky „doplníme" v kódu)
+
+- [ ] Sazby kalkulačky — `RATE_PER_M2` a násobky v `js/main.js` (teď ilustračních 38 000 Kč/m²)
+- [ ] Reálné fotky/videa — hero sekce běží na stock fotkách v `media/viz/` (focení ~měsíc po schůzce)
+- [ ] Loga partnerů (DEK, Senesi, KV Elektro, Ptáček) — zatím textová
+- [ ] Reference/recenze — zatím vymyšlené
+- [ ] Napojení formuláře → info@stagnum.cz / aplikace s potvrzovacím mailem (`js/main.js`)
 - [ ] Odkazy FB/IG ve footeru (profily se zakládají)
-- [ ] Finální texty o firmě (po rozhovoru s klientem)
-- [ ] Produkčně dokoupit font **Visby CF** (logomanuál) — teď náhrada Poppins/Inter
+- [ ] Doména stagnum.cz (zatím st4gnum.vercel.app)
+- [ ] Produkčně dokoupit font **Visby CF** (teď náhrada Poppins/Inter)
 
 ## Poznámky k výkonu
 

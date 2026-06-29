@@ -334,6 +334,32 @@
       </div>
     </section>
 
+    <!-- ============ SKLADBA STĚN A PODLAH (3. signature vizualizace) ============ -->
+    <section class="build skladby section section--soft" id="skladby">
+      <div class="container">
+        <div class="section__head">
+          <p class="section__eyebrow">Z čeho je váš dům</p>
+          <h2 class="section__title">Skladba stěn<br><span class="accent">a&nbsp;podlah</span></h2>
+          <p class="section__lead build__hint">Scrollujte — jednotlivé vrstvy se naskládají na sebe.</p>
+          <div class="build__toggle" id="wallToggle">
+            <button type="button" class="is-active" data-mode="stena-otevrena">Stěna · otevřená</button>
+            <button type="button" data-mode="stena-uzavrena">Stěna · uzavřená</button>
+            <button type="button" data-mode="podlaha">Podlaha</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="build__stage" id="wallStage">
+        <div class="container build__layout">
+          <div class="build__house-wrap">
+            <svg viewBox="0 0 480 360" class="iso-house iso-house--build wall-svg" id="wallSvg" aria-hidden="true"></svg>
+            <p class="skladby__note" id="wallNote"></p>
+          </div>
+          <ol class="build__phases" id="wallPhases"></ol>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ PROČ MY ============ -->
     <section class="why section section--navy" id="proc-my">
       <div class="container">
@@ -389,12 +415,12 @@
 
         <div class="refs__grid">
           <figure class="ref-card">
-            <div class="ref-card__img"><img src="media/viz/drevostavba.jpg" alt="Dřevostavba" loading="lazy">
+            <div class="ref-card__img"><img src="media/viz/realizace-drevo.jpg" alt="Dřevostavba" loading="lazy">
               <span class="ref-card__tag">Dřevostavba</span></div>
             <figcaption><h4>Dřevostavba na klíč</h4><p>Nízkoenergetický dům od základové desky po předání klíčů.</p></figcaption>
           </figure>
           <figure class="ref-card">
-            <div class="ref-card__img"><img src="media/viz/zdeny-dum.jpg" alt="Zděný dům" loading="lazy">
+            <div class="ref-card__img"><img src="media/viz/realizace-zdeny.jpg" alt="Zděný dům" loading="lazy">
               <span class="ref-card__tag">Zděná stavba</span></div>
             <figcaption><h4>Zděná novostavba</h4><p>Developerský projekt ve vlastní režii — důkaz, že řemeslu rozumíme od základů.</p></figcaption>
           </figure>
@@ -535,6 +561,7 @@
   <script src="js/vendor/ScrollTrigger.min.js"></script>
   <script src="js/vendor/lenis.min.js"></script>
   <script src="js/iso-house.js"></script>
+  <script src="js/wall.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

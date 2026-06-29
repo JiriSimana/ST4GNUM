@@ -39,9 +39,10 @@ css/style.css       – styly (brand: navy #003A70, teal #64CCC9, tlačítka #2B
 css/fonts.css       – lokální @font-face (Poppins + Inter, latin + latin-ext)
 fonts/              – woff2 soubory (web funguje offline)
 js/vendor/          – GSAP, ScrollTrigger, Lenis (lokálně, bez CDN)
-js/iso-house.js     – izometrický SVG dům (8 vrstev = fází stavby)
-js/main.js          – animace, kalkulačka, dropdown menu, přepínač dřevo/zděný, formulář, video
-media/viz/          – vizualizace na pozadí hero sekcí (stock placeholdery, Pexels)
+js/iso-house.js     – izometrický SVG dům (8 vrstev = fází stavby), přepínač dřevo/zděný
+js/wall.js          – skladba stěn a podlah (řez, vrstvy se skládají; otevřená/uzavřená/podlaha)
+js/main.js          – animace, kalkulačka, dropdown menu, přepínače, formulář, video
+media/viz/          – vizualizace na pozadí hero sekcí (výřezy z koláže klienta + stock)
 media/rekonstrukce-bytu.mp4    – plné video před/po klienta (hraje v lightboxu)
 media/rekonstrukce-nahled.mp4  – odlehčený náhled do karty (6 MB)
 media/poster.jpg               – poster náhledu (video se načítá až při zobrazení)
@@ -51,7 +52,11 @@ media/poster.jpg               – poster náhledu (video se načítá až při 
 
 Hero → Služby intro → **Dřevostavby** (hero, tmavá) → **Zděné domy** (hero, světlá) →
 **Rekonstrukce** (hero + postup + video před/po + reference) → Kalkulačka →
-Animace stavby (přepínač dřevo/zděný) → Proč my + partneři → Realizace → Kontakt (formulář) → Instalace.
+Animace stavby (přepínač dřevo/zděný) → **Skladba stěn a podlah** (3. scroll-animace) →
+Proč my + partneři → Realizace → Kontakt (formulář) → Instalace.
+
+**3 signature scroll-vizualizace:** skládání domu (dřevo + zděný, `iso-house.js`) a
+skladba stěn/podlah (`wall.js`). Rekonstrukce řešena videem, ne animací.
 
 ## TODO-KLIENT (placeholdery — hledej `TODO-KLIENT` / štítky „doplníme" v kódu)
 

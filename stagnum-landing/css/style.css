@@ -436,6 +436,14 @@ h1, h2, h3, h4 { font-family: var(--font-head); }
 .build__phases li span { font-size: 13.5px; color: var(--gray); padding-left: 42px; }
 .build__phases li.is-active { opacity: 1; background: #fff; border-color: var(--teal-dim); box-shadow: var(--shadow-sm); transform: translateX(6px); }
 
+/* skladba stěn a podlah */
+.skladby .build__layout { min-height: 0; padding-top: 10px; padding-bottom: 10px; }
+.skladby .build__toggle { flex-wrap: wrap; justify-content: center; }
+.wall-svg { width: 100%; max-width: 480px; }
+.skladby__note { margin-top: 14px; text-align: center; font-size: 13.5px; color: var(--gray); font-style: italic; max-width: 420px; margin-left: auto; margin-right: auto; }
+.skladby .build__phases li span { padding-left: 0; }
+.skladby .build__phases li strong { font-size: 15px; }
+
 /* ============================================================
    PROČ MY + partneři
    ============================================================ */

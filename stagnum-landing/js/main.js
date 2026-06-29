@@ -145,6 +145,60 @@ if (!prefersReducedMotion) {
 }
 
 /* ------------------------------------------------------------
+   Skladba stěn a podlah (3. signature vizualizace)
+------------------------------------------------------------ */
+const wallSvg = document.getElementById('wallSvg');
+const wallPhasesEl = document.getElementById('wallPhases');
+const wallNote = document.getElementById('wallNote');
+const wallToggle = document.getElementById('wallToggle');
+let wallItems = [];
+let wallTl = null;
+
+function setWallPhase(k) { wallItems.forEach((li, i) => li.classList.toggle('is-active', i === k)); }
+
+function setupWall(mode) {
+  const layers = window.renderWall(wallSvg, mode);
+  const set = window.wallData[mode];
+  wallNote.textContent = set.note;
+  wallPhasesEl.innerHTML = set.layers
+    .map((l) => `<li><strong>${l.n}</strong><span>${l.d}</span></li>`).join('');
+  wallItems = wallPhasesEl.querySelectorAll('li');
+
+  if (wallTl) { if (wallTl.scrollTrigger) wallTl.scrollTrigger.kill(); wallTl.kill(); wallTl = null; }
+
+  if (prefersReducedMotion) {
+    layers.forEach((g) => gsap.set(g, { opacity: 1, y: 0 }));
+    setWallPhase(layers.length - 1);
+    return;
+  }
+  layers.forEach((g) => gsap.set(g, { opacity: 0, y: -40 }));
+  setWallPhase(0);
+  const n = layers.length;
+  wallTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: '#wallStage',
+      start: isMobile ? 'top 78%' : 'top 70%',
+      end: isMobile ? 'bottom 90%' : 'bottom 80%',
+      scrub: 0.4,
+      onUpdate: (self) => setWallPhase(Math.min(n - 1, Math.floor(self.progress * n))),
+    },
+  });
+  layers.forEach((g, i) => wallTl.to(g, { opacity: 1, y: 0, duration: 0.6, ease: 'back.out(1.3)' }, i * 0.7));
+}
+
+if (wallSvg) {
+  setupWall('stena-otevrena');
+  wallToggle.addEventListener('click', (e) => {
+    const btn = e.target.closest('button');
+    if (!btn) return;
+    wallToggle.querySelectorAll('button').forEach((b) => b.classList.remove('is-active'));
+    btn.classList.add('is-active');
+    setupWall(btn.dataset.mode);
+    ScrollTrigger.refresh();
+  });
+}
+
+/* ------------------------------------------------------------
    Nav: scrolled + dropdown + mobilní menu
 ------------------------------------------------------------ */
 const burger = document.getElementById('navBurger');

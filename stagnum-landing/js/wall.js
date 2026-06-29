@@ -92,26 +92,43 @@
   }
   const HATCH = { insul: 'url(#pInsul)', wood: 'url(#pWood)', concrete: 'url(#pConc)', screed: 'url(#pScreed)', floor: 'url(#pFloor)' };
 
-  /* vykreslí řez do SVG, vrátí pole skupin (vrstev) v pořadí skládání */
+  /* vykreslí řez do SVG, vrátí pole skupin (vrstev). Každá vrstva má číselný
+     odznak s vodicí linkou → propojení s bočním seznamem (hover). */
   window.renderWall = function (svg, mode) {
     svg.innerHTML = '';
     svg.appendChild(defs());
     const set = SETS[mode];
-    const X0 = 54, X1 = 426, Y0 = 54, Y1 = 300;
+    const X0 = 54, X1 = 426, Y0 = 78, Y1 = 300, BADGE_Y = 34;
+    const n = set.layers.length;
     const totalT = set.layers.reduce((s, l) => s + l.t, 0);
     const W = X1 - X0;
     const groups = [];
+    const centers = [];
     let x = X0;
     set.layers.forEach((l, i) => {
       const w = (l.t / totalT) * W;
-      const g = el('g', { 'data-i': i });
-      const rect = el('rect', { x: x, y: Y0, width: w, height: Y1 - Y0, fill: l.c, stroke: 'rgba(0,42,82,0.28)', 'stroke-width': 1, rx: 1 });
+      centers.push(x + w / 2);
+      const g = el('g', { 'data-i': i, class: 'wall-layer' });
+      const rect = el('rect', { x: x, y: Y0, width: w, height: Y1 - Y0, fill: l.c, stroke: 'rgba(0,42,82,0.3)', 'stroke-width': 1, rx: 1, class: 'wall-rect' });
       g.appendChild(rect);
       if (HATCH[l.h]) g.appendChild(el('rect', { x: x, y: Y0, width: w, height: Y1 - Y0, fill: HATCH[l.h], rx: 1 }));
       groups.push(g);
       svg.appendChild(g);
       x += w;
     });
+
+    // číselné odznaky rovnoměrně nahoře + vodicí linky na střed vrstvy
+    set.layers.forEach((l, i) => {
+      const bx = X0 + (i + 0.5) * (W / n);
+      const b = el('g', { 'data-i': i, class: 'wall-badge' });
+      b.appendChild(el('line', { x1: bx, y1: BADGE_Y + 11, x2: centers[i], y2: Y0, stroke: 'rgba(0,42,82,0.25)', 'stroke-width': 1, class: 'wall-lead' }));
+      b.appendChild(el('circle', { cx: bx, cy: BADGE_Y, r: 11, fill: '#fff', stroke: '#2BA8A1', 'stroke-width': 1.6, class: 'wall-badge-c' }));
+      const t = el('text', { x: bx, y: BADGE_Y + 4, 'text-anchor': 'middle', 'font-size': 12, 'font-weight': 700, fill: '#003A70', 'font-family': 'Poppins, sans-serif', class: 'wall-badge-t' });
+      t.textContent = i + 1;
+      b.appendChild(t);
+      svg.appendChild(b);
+    });
+
     // popisky stran (interiér / exteriér)
     const lab = el('g', { 'data-fixed': '1' });
     const tA = el('text', { x: X0, y: Y1 + 26, fill: '#5b7287', 'font-size': 13, 'font-family': 'Poppins, sans-serif', 'font-weight': 600 });

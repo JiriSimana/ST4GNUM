@@ -8,20 +8,17 @@
   <meta property="og:title" content="Dřevostavby, zděné domy a rekonstrukce Plzeň | STAGNUM">
   <meta property="og:description" content="Domov na klíč s pevnou cenou a osobním přístupem. Dřevostavby, zděné domy, rekonstrukce bytů na Plzeňsku.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.stagnum.cz">
   <meta property="og:locale" content="cs_CZ">
-
   <link rel="preload" href="fonts/poppins-800-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/poppins-800-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/inter-400-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" as="image" href="media/viz/hero-dum.jpg">
-  <!-- Fonty lokálně (rychlost + offline). Produkčně dokoupit Visby CF (logomanuál). -->
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body data-page="home">
 
-  <!-- ============ LOADING SCREEN (vrstvy domu přiletí) ============ -->
+  <!-- loading screen -->
   <div class="preloader" id="preloader">
     <div class="preloader__inner">
       <svg viewBox="0 0 480 360" class="iso-house iso-house--loader" id="loaderHouse" aria-hidden="true"></svg>
@@ -29,50 +26,15 @@
     </div>
   </div>
 
-  <!-- ============ SVG DEFS: PUZZLE LOGO (z logomanuálu) ============ -->
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-    <defs>
-      <g id="puzzleHouse">
-        <path d="M101.7 16 L174 88 L101.7 88 Z" fill="currentColor"/>
-        <rect x="26" y="91.5" width="72.3" height="86.5" fill="currentColor"/>
-        <path d="M98.3 16 L98.3 88 L26 88 Z" fill="currentColor"/>
-        <rect x="101.7" y="91.5" width="72.3" height="86.5" fill="currentColor"/>
-      </g>
-    </defs>
-  </svg>
+  <!-- puzzle logo def -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><g id="puzzleHouse">
+    <path d="M101.7 16 L174 88 L101.7 88 Z" fill="currentColor"/>
+    <rect x="26" y="91.5" width="72.3" height="86.5" fill="currentColor"/>
+    <path d="M98.3 16 L98.3 88 L26 88 Z" fill="currentColor"/>
+    <rect x="101.7" y="91.5" width="72.3" height="86.5" fill="currentColor"/>
+  </g></defs></svg>
 
-  <!-- ============ NAV ============ -->
-  <header class="nav" id="nav">
-    <div class="nav__inner">
-      <a href="#uvod" class="nav__brand">
-        <svg viewBox="0 0 200 190" class="nav__logo" aria-hidden="true"><use href="#puzzleHouse"></use></svg>
-        <span class="nav__name">STAGNUM<small>for better living</small></span>
-      </a>
-
-      <nav class="nav__links" id="navLinks">
-        <a href="#uvod">Domů</a>
-        <div class="nav__has-sub">
-          <button class="nav__sub-toggle" aria-expanded="false">Služby
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-          </button>
-          <div class="nav__dropdown">
-            <a href="#drevostavby"><strong>Dřevostavby na klíč</strong><span>Moderní, zdravé a úsporné bydlení</span></a>
-            <a href="#zdene-domy"><strong>Zděné domy na klíč</strong><span>Pevný základ na celý život</span></a>
-            <a href="#rekonstrukce"><strong>Rekonstrukce bytů</strong><span>Nový domov bez starostí</span></a>
-            <a href="#instalace" class="nav__dropdown-mini"><strong>Voda · topení · elektro</strong><span>Instalatérské práce</span></a>
-          </div>
-        </div>
-        <a href="#realizace">Realizace</a>
-        <a href="#proc-my">Proč my</a>
-        <a href="#kontakt">Kontakt</a>
-      </nav>
-
-      <a href="#kontakt" class="nav__cta">Nezávazná poptávka</a>
-      <button class="nav__burger" id="navBurger" aria-label="Otevřít menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
+  <div data-layout="nav"></div>
 
   <main>
 
@@ -81,177 +43,164 @@
       <img class="svc-hero__img" src="media/viz/hero-dum.jpg" alt="Moderní rodinný dům za soumraku">
       <div class="svc-hero__overlay svc-hero__overlay--dark"></div>
       <div class="svc-hero__inner container">
-        <p class="hero__eyebrow"><span class="hero__eyebrow-dot"></span>For Better Living&nbsp;·&nbsp;Plzeň a okolí</p>
+        <p class="hero__eyebrow"><span class="hero__eyebrow-dot"></span>For Better Living&nbsp;·&nbsp;Plzeň a&nbsp;okolí</p>
         <h1 class="hero__title">
           <span class="line"><span>Domov na klíč,</span></span>
           <span class="line"><span class="accent">za kterým si stojíme.</span></span>
         </h1>
         <p class="hero__sub">Rodinná firma z Plzně. Stavíme dřevostavby i zděné domy a kompletně rekonstruujeme byty. Jednáte přímo s tím, kdo staví — od první myšlenky po předání klíčů.</p>
         <div class="hero__cta">
-          <a href="#kontakt" class="btn btn--primary">
+          <a href="kontakt.html" class="btn btn--primary">
             Nezávazná poptávka
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <a href="#realizace" class="btn btn--ghost-light">Prohlédnout realizace</a>
+          <a href="#sluzby" class="btn btn--ghost-light">Co stavíme</a>
         </div>
-        <div class="hero__features">
-          <div class="hero__feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/><path d="M9 9v.01M9 12v.01M9 15v.01M9 18v.01"/></svg>
-            <div><strong>Rodinná firma</strong><span>žádné call centrum</span></div>
-          </div>
-          <div class="hero__feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            <div><strong>Čeští řemeslníci</strong><span>stálý tým, ne brigádníci</span></div>
-          </div>
-          <div class="hero__feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14"/><path d="M16.5 9.4 7.5 4.21"/><circle cx="18.5" cy="15.5" r="2.5"/><path d="M20.3 17.3 22 19"/></svg>
-            <div><strong>Vše na klíč</strong><span>projekt, stavba, předání</span></div>
-          </div>
-        </div>
-      </div>
-      <a href="#sluzby" class="hero__scroll" aria-label="Posunout dolů">
-        <span class="hero__scroll-line"></span><span>Naše služby</span>
-      </a>
-    </section>
-
-    <!-- ============ SLUŽBY — intro ============ -->
-    <section class="svc-intro section" id="sluzby">
-      <div class="container section__head">
-        <p class="section__eyebrow">Co stavíme</p>
-        <h2 class="section__title">Tři cesty k vašemu<br><span class="accent">vysněnému domovu</span></h2>
-        <p class="section__lead">Ať řešíte novostavbu nebo proměnu bytu — máte jednoho partnera, který za prací stojí od začátku do konce.</p>
+        <p class="hero__proof">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          10+ domů v&nbsp;naší režii &nbsp;·&nbsp; rodinná firma &nbsp;·&nbsp; čeští řemeslníci
+          <span class="todo-chip">reálná čísla doplníme</span>
+        </p>
       </div>
     </section>
 
-    <!-- ============ DŘEVOSTAVBY ============ -->
-    <section class="svc-hero svc-hero--split" id="drevostavby">
-      <img class="svc-hero__img" src="media/viz/drevostavba.jpg" alt="Moderní dřevostavba" loading="lazy">
-      <div class="svc-hero__overlay svc-hero__overlay--dark"></div>
-      <div class="svc-hero__inner container">
-        <p class="svc-hero__eyebrow">Dřevostavby na klíč</p>
-        <h2 class="svc-hero__title">Přirozené bydlení.<br><span class="accent">Moderní život.</span></h2>
-        <p class="svc-hero__sub">Stavíme moderní dřevostavby na míru — stojku po stojce, s důrazem na kvalitu, zdravé prostředí a nízké náklady na provoz. Žádné převozové polotovary.</p>
-        <div class="svc-hero__cta">
-          <a href="#kontakt" class="btn btn--primary">Zjistěte více</a>
-          <a href="#realizace" class="btn btn--ghost-light">Prohlédnout realizace</a>
-        </div>
-        <ul class="svc-hero__feats">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>Ekologické a&nbsp;zdravé bydlení</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg>Vynikající tepelná izolace</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>Úspora energií a&nbsp;nákladů</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ============ ZDĚNÉ DOMY (světlá varianta) ============ -->
-    <section class="svc-hero svc-hero--split svc-hero--light" id="zdene-domy">
-      <img class="svc-hero__img" src="media/viz/zdeny-dum.jpg" alt="Moderní zděný dům" loading="lazy">
-      <div class="svc-hero__overlay svc-hero__overlay--light"></div>
-      <div class="svc-hero__inner container">
-        <p class="svc-hero__eyebrow">Zděné domy na klíč</p>
-        <h2 class="svc-hero__title">Pevný základ.<br><span class="accent-navy">Domov na celý život.</span></h2>
-        <p class="svc-hero__sub">Stavíme zděné domy na klíč s důrazem na kvalitu, dlouhou životnost a nadčasový design. Dům, který přečká generace.</p>
-        <div class="svc-hero__cta">
-          <a href="#kontakt" class="btn btn--primary">Zjistěte více</a>
-          <a href="#realizace" class="btn btn--ghost-dark">Prohlédnout realizace</a>
-        </div>
-        <ul class="svc-hero__feats svc-hero__feats--dark">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z"/></svg>Dlouhá životnost a&nbsp;odolnost</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="1"/><path d="M3 11V7h6v4M9 7V3h6v8M15 11V7h6v4"/></svg>Kvalitní a&nbsp;prověřené materiály</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Vysoký komfort a&nbsp;design</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ============ REKONSTRUKCE BYTŮ ============ -->
-    <section class="svc-hero svc-hero--split" id="rekonstrukce">
-      <img class="svc-hero__img" src="media/viz/interier-po.jpg" alt="Moderní interiér po rekonstrukci" loading="lazy">
-      <div class="svc-hero__overlay svc-hero__overlay--dark"></div>
-      <div class="svc-hero__inner container">
-        <p class="svc-hero__eyebrow">Rekonstrukce bytů</p>
-        <h2 class="svc-hero__title">Nový domov.<br><span class="accent">Bez starostí.</span></h2>
-        <p class="svc-hero__sub">Kompletní rekonstrukce bytů od návrhu až po finální úklid. Kvalitně, spolehlivě a v termínu — vy se nemusíte starat o nic.</p>
-        <div class="svc-hero__cta">
-          <a href="#kontakt" class="btn btn--primary">Zjistěte více</a>
-          <a href="#realizace" class="btn btn--ghost-light">Prohlédnout realizace</a>
-        </div>
-        <ul class="svc-hero__feats svc-hero__feats--grid">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Kompletní řešení</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z"/><path d="m9 12 2 2 4-4"/></svg>Kvalita a&nbsp;záruka</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/></svg>Dodržujeme termíny</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>Individuální přístup</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ============ REKONSTRUKCE — postup + před/po + reference ============ -->
-    <section class="reno section section--soft">
+    <!-- ============ 3 SLUŽBY (hned jasné, co děláme) ============ -->
+    <section class="svc-cards section" id="sluzby">
       <div class="container">
-        <div class="section__head section__head--left">
-          <p class="section__eyebrow">Jak probíhá rekonstrukce</p>
-          <h2 class="section__title">Promyšlený postup<br><span class="accent">pro perfektní výsledek.</span></h2>
+        <div class="section__head">
+          <p class="section__eyebrow">Co stavíme</p>
+          <h2 class="section__title">Tři cesty k&nbsp;vašemu<br><span class="accent">vysněnému domovu</span></h2>
         </div>
+        <div class="svc-cards__grid">
+          <a class="svc-card" href="drevostavby.html">
+            <div class="svc-card__img"><img src="media/viz/drevostavba.jpg" alt="Dřevostavba" loading="lazy"></div>
+            <div class="svc-card__body">
+              <h3>Dřevostavby na klíč</h3>
+              <p>Moderní, zdravé a&nbsp;energeticky úsporné bydlení. Stavěné na míru, stojku po stojce.</p>
+              <span class="svc-card__more">Více o&nbsp;dřevostavbách
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+          </a>
+          <a class="svc-card" href="zdene-domy.html">
+            <div class="svc-card__img"><img src="media/viz/realizace-zdeny.jpg" alt="Zděný dům" loading="lazy"></div>
+            <div class="svc-card__body">
+              <h3>Zděné domy na klíč</h3>
+              <p>Pevný základ a&nbsp;nadčasový design. Dům s&nbsp;dlouhou životností, který přečká generace.</p>
+              <span class="svc-card__more">Více o&nbsp;zděných domech
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+          </a>
+          <a class="svc-card" href="rekonstrukce.html">
+            <div class="svc-card__img"><img src="media/viz/interier-po.jpg" alt="Rekonstrukce bytu" loading="lazy"></div>
+            <div class="svc-card__body">
+              <h3>Rekonstrukce bytů</h3>
+              <p>Kompletní proměna od návrhu po finální úklid. Kvalitně, spolehlivě a&nbsp;v&nbsp;termínu.</p>
+              <span class="svc-card__more">Více o&nbsp;rekonstrukcích
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
 
-        <div class="reno__grid">
-          <!-- postup -->
-          <div class="reno__steps">
-            <div class="process__line" aria-hidden="true"><span id="processLineFill"></span></div>
-            <div class="step">
-              <div class="step__badge">1</div>
-              <h3>Konzultace</h3>
-              <p>Probereme vaše představy, potřeby a možnosti. Zdarma a nezávazně.</p>
+    <!-- ============ PROČ MY + PARTNEŘI ============ -->
+    <section class="why section section--navy" id="proc-my">
+      <div class="container">
+        <div class="why__grid">
+          <div class="why__content">
+            <p class="section__eyebrow section__eyebrow--light">Proč STAGNUM</p>
+            <h2 class="section__title">Jsme rodinná firma.<br><span class="accent-teal">Stavíme, jako bychom stavěli sobě.</span></h2>
+            <p class="why__text">Na Plzeňsku stavíme dřevostavby, zděné domy a&nbsp;rekonstruujeme byty. Bez anonymních obchodníků — od první schůzky po předání klíčů jednáte se stejným člověkem.</p>
+            <div class="why__points">
+              <div class="why-point"><div class="why-point__num">01</div><div><h4>Jednáte přímo s&nbsp;tím, kdo staví</h4><p>Žádné call centrum ani prodejce na provizi. Stálý český tým.</p></div></div>
+              <div class="why-point"><div class="why-point__num">02</div><div><h4>Vše od myšlenky po klíče</h4><p>Zajistíme projekt, povolení i&nbsp;stavbu. Pomůžeme s&nbsp;pozemkem a&nbsp;financováním.</p></div></div>
+              <div class="why-point"><div class="why-point__num">03</div><div><h4>Transparentní cena</h4><p>Orientační cenu znáte za minutu, pevnou písemně před podpisem — a&nbsp;platí.</p></div></div>
             </div>
-            <div class="step">
-              <div class="step__badge">2</div>
-              <h3>Návrh a&nbsp;plán</h3>
-              <p>Připravíme řešení na míru a detailní rozpočet — bez hvězdiček.</p>
-            </div>
-            <div class="step">
-              <div class="step__badge">3</div>
-              <h3>Realizace</h3>
-              <p>Profesionálně provedeme všechny práce. Posíláme foto-reporty.</p>
-            </div>
-            <div class="step">
-              <div class="step__badge">4</div>
-              <h3>Předání</h3>
-              <p>Předáme hotový byt připravený k bydlení — a po sobě uklidíme.</p>
-            </div>
+            <a href="kontakt.html" class="btn btn--primary why__btn">Domluvit schůzku</a>
           </div>
-
-          <!-- před / po (reálné video klienta) -->
-          <figure class="reno__video">
-            <div class="reno__video-frame" id="videoCard" role="button" tabindex="0" aria-label="Přehrát video rekonstrukce">
-              <video id="refVideo" src="media/rekonstrukce-nahled.mp4" poster="media/poster.jpg" muted loop playsinline preload="none"></video>
-              <button class="ref-card__play" aria-hidden="true" tabindex="-1">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-              </button>
-              <span class="reno__video-badge">▶ Naše realizace — před a&nbsp;po</span>
-            </div>
-            <figcaption>Sestříhané video přímo ze stavby. Kompletní proměna bytu od podlah po stropy.</figcaption>
+          <figure class="why__visual">
+            <img src="media/viz/navrh.jpg" alt="Návrh stavby — práce s projektem" loading="lazy">
+            <figcaption>Každý projekt řešíme do detailu — od prvního návrhu po výběr materiálů.</figcaption>
           </figure>
         </div>
 
-        <!-- reference + statistiky -->
-        <div class="reno__proof">
-          <blockquote class="reno__quote">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 5C6.5 6.5 5 9 5 12h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4c0-4 2-7.5 6-9.5ZM20.5 5C17.5 6.5 16 9 16 12h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-3a2 2 0 0 1-2-2v-4c0-4 2-7.5 6-9.5Z"/></svg>
-            <p>„Rekonstrukce bytu předčila naše očekávání. Skvělá komunikace, precizní práce a výsledek, který nám dělá radost každý den."</p>
-            <footer>Jana a&nbsp;Petr, Plzeň <span class="todo-chip">reference doplníme</span></footer>
-          </blockquote>
-          <div class="reno__stats">
-            <div class="stat">
-              <div class="stat__num"><span class="counter" data-target="10">0</span></div>
-              <div class="stat__label">let praxe v&nbsp;oboru</div>
-            </div>
-            <div class="stat">
-              <div class="stat__num"><span class="counter" data-target="10">0</span>+</div>
-              <div class="stat__label">domů v&nbsp;naší režii</div>
-            </div>
-            <div class="stat">
-              <div class="stat__num"><span class="counter" data-target="100">0</span>%</div>
-              <div class="stat__label">práce s&nbsp;garancí kvality</div>
-            </div>
+        <!-- reálné výsledky -->
+        <div class="stat-strip">
+          <div class="stat"><div class="stat__num"><span class="counter" data-target="10">0</span></div><div class="stat__label">let praxe v&nbsp;oboru</div></div>
+          <div class="stat"><div class="stat__num"><span class="counter" data-target="10">0</span>+</div><div class="stat__label">domů v&nbsp;naší režii</div></div>
+          <div class="stat"><div class="stat__num"><span class="counter" data-target="100">0</span>%</div><div class="stat__label">práce s&nbsp;garancí kvality</div></div>
+          <div class="stat"><div class="stat__num">Plzeň</div><div class="stat__label">a&nbsp;okolí do 50&nbsp;km</div></div>
+        </div>
+
+        <div class="partners">
+          <p class="partners__label">Stavíme z&nbsp;materiálů prověřených dodavatelů</p>
+          <div class="partners__row">
+            <span>DEK</span><span>Senesi</span><span>KV&nbsp;Elektro</span><span>Ptáček</span>
+            <span class="todo-chip">loga doplníme</span>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RECENZE (social proof, karusel) ============ -->
+    <section class="reviews section section--soft" id="recenze">
+      <div class="container">
+        <div class="section__head">
+          <p class="section__eyebrow">Reference</p>
+          <h2 class="section__title">Co o&nbsp;nás říkají<br><span class="accent">naši zákazníci</span></h2>
+          <p class="section__lead">Reálné ohlasy se souhlasem zákazníků. <span class="todo-chip">recenze + fotky doplníme</span></p>
+        </div>
+        <div class="reviews__grid">
+          <figure class="review">
+            <div class="review__stars" aria-hidden="true">★★★★★</div>
+            <blockquote>Konečně firma, která přijela, kdy slíbila, a&nbsp;cena seděla na korunu. Dům nám postavili krásný a&nbsp;po řemeslnících zůstal pořádek.</blockquote>
+            <figcaption><span class="review__photo" aria-hidden="true">N</span><span class="review__who"><strong>rodina Novákova</strong><small>dřevostavba · Plzeň-jih</small></span></figcaption>
+          </figure>
+          <figure class="review">
+            <div class="review__stars" aria-hidden="true">★★★★★</div>
+            <blockquote>Vyměnili nám kotel a&nbsp;celou koupelnu a&nbsp;vše srozumitelně vysvětlili. Doporučili jsme je hned třem sousedům.</blockquote>
+            <figcaption><span class="review__photo" aria-hidden="true">S</span><span class="review__who"><strong>manželé Severovi</strong><small>rekonstrukce · Rokycany</small></span></figcaption>
+          </figure>
+          <figure class="review">
+            <div class="review__stars" aria-hidden="true">★★★★★</div>
+            <blockquote>Od první schůzky po klíče jsme jednali s&nbsp;jedním člověkem. Žádné výmluvy, žádné položky navíc. Přesně jak slíbili.</blockquote>
+            <figcaption><span class="review__photo" aria-hidden="true">K</span><span class="review__who"><strong>Marie K.</strong><small>zděný dům · Starý Plzenec</small></span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ REALIZACE (ukázka) ============ -->
+    <section class="refs section" id="realizace">
+      <div class="container">
+        <div class="section__head">
+          <p class="section__eyebrow">Realizace</p>
+          <h2 class="section__title">Naše práce mluví<br><span class="accent">za nás</span></h2>
+          <p class="section__lead">Fotografie a&nbsp;videa našich staveb průběžně doplňujeme. <span class="todo-chip">vlastní focení — Karma</span></p>
+        </div>
+        <div class="refs__grid">
+          <a class="ref-card" href="drevostavby.html"><div class="ref-card__img"><img src="media/viz/realizace-drevo.jpg" alt="Dřevostavba" loading="lazy"><span class="ref-card__tag">Dřevostavba</span></div><figcaption><h4>Dřevostavba na klíč</h4><p>Nízkoenergetický dům od desky po klíče.</p></figcaption></a>
+          <a class="ref-card" href="zdene-domy.html"><div class="ref-card__img"><img src="media/viz/realizace-zdeny.jpg" alt="Zděný dům" loading="lazy"><span class="ref-card__tag">Zděná stavba</span></div><figcaption><h4>Zděná novostavba</h4><p>Developerský projekt ve vlastní režii.</p></figcaption></a>
+          <a class="ref-card" href="rekonstrukce.html"><div class="ref-card__img"><img src="media/viz/kuchyne-po.jpg" alt="Rekonstrukce" loading="lazy"><span class="ref-card__tag">Rekonstrukce</span></div><figcaption><h4>Rekonstrukce bytu</h4><p>Kompletní proměna jádra i&nbsp;kuchyně.</p></figcaption></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ AKTUÁLNĚ VE VÝSTAVBĚ ============ -->
+    <section class="section section--soft" id="aktualne">
+      <div class="container">
+        <div class="section__head">
+          <p class="section__eyebrow">Aktuálně stavíme</p>
+          <h2 class="section__title">Právě teď máme<br><span class="accent">rozestavěné projekty</span></h2>
+          <p class="section__lead">Sledujte naše stavby v&nbsp;průběhu — fotky a&nbsp;videa průběžně doplňujeme. <span class="todo-chip">aktuální projekty + focení Karma</span></p>
+        </div>
+        <div class="live__grid">
+          <article class="live__card"><div class="live__media"><img src="media/viz/realizace-drevo.jpg" alt="Dřevostavba ve výstavbě" loading="lazy"><span class="live__flag">Ve výstavbě</span></div><div class="live__body"><h3>Dřevostavba — Přelíšov</h3><p>Hrubá stavba · Plzeňsko <span class="todo-chip">doplnit</span></p></div></article>
+          <article class="live__card"><div class="live__media"><img src="media/viz/realizace-zdeny.jpg" alt="Zděný dům ve výstavbě" loading="lazy"><span class="live__flag">Ve výstavbě</span></div><div class="live__body"><h3>Zděná novostavba — Losiná</h3><p>Developerský projekt <span class="todo-chip">doplnit</span></p></div></article>
+          <article class="live__card"><div class="live__media"><img src="media/viz/kuchyne-po.jpg" alt="Rekonstrukce bytu" loading="lazy"><span class="live__flag">Ve výstavbě</span></div><div class="live__body"><h3>Rekonstrukce bytu — Plzeň</h3><p>Kompletní rekonstrukce <span class="todo-chip">doplnit</span></p></div></article>
         </div>
       </div>
     </section>
@@ -264,7 +213,6 @@
           <h2 class="section__title">Kolik bude stát<br><span class="accent-teal">vaše stavba?</span></h2>
           <p class="section__lead section__lead--light">Bez e-mailu, bez volání. Spočítejte si přibližnou cenu hned teď.</p>
         </div>
-
         <div class="calc">
           <div class="calc__main">
             <div class="calc__row">
@@ -274,13 +222,11 @@
                 <button type="button" data-mult="1.06">Zděný dům</button>
               </div>
             </div>
-
             <label class="calc__row">
               <div class="calc__label">Užitná plocha <output id="areaOut">110 m²</output></div>
               <input type="range" id="areaInput" min="60" max="200" step="5" value="110">
               <div class="calc__range-marks"><span>60 m²</span><span>200 m²</span></div>
             </label>
-
             <div class="calc__row">
               <div class="calc__label">Úroveň provedení</div>
               <div class="calc__segments" id="standardSeg">
@@ -290,7 +236,6 @@
               </div>
               <p class="calc__hint" id="levelHint">Základ — kvalitní standardní provedení připravené k bydlení.</p>
             </div>
-
             <div class="calc__row">
               <div class="calc__label">Rozsah dodávky</div>
               <div class="calc__segments" id="finishSeg">
@@ -299,269 +244,59 @@
               </div>
             </div>
           </div>
-
           <div class="calc__side">
             <span class="calc__result-label">Orientační cena od</span>
             <strong class="calc__price" id="calcPrice">4 200 000 Kč</strong>
-            <a href="#kontakt" class="btn btn--primary btn--full">Poslat mi přesnou kalkulaci</a>
-            <p class="calc__disclaimer">Cena je orientační a závisí na pozemku, projektu a vybavení. Přesnou nabídku připravíme zdarma a nezávazně. <span class="todo-chip">sazby doplní klient</span></p>
+            <a href="kontakt.html" class="btn btn--primary btn--full">Poslat mi přesnou kalkulaci</a>
+            <p class="calc__disclaimer">Cena je orientační a&nbsp;závisí na pozemku, projektu a&nbsp;vybavení. Přesnou nabídku připravíme zdarma. <span class="todo-chip">sazby doplní klient</span></p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ JAK STAVÍME — animace domu (signature) ============ -->
-    <section class="build section" id="jak-stavime">
+    <!-- ============ INSTALACE STRIP (vedlejší služba) ============ -->
+    <section class="instal-strip" id="instalace">
+      <div class="container instal-strip__inner">
+        <div class="instal-strip__text">
+          <strong>Voda · topení · elektro</strong>
+          <span>Zvládneme i&nbsp;instalatérské práce — samostatně nebo jako součást stavby a&nbsp;rekonstrukce.</span>
+        </div>
+        <a href="kontakt.html" class="instal-strip__link">Poptat instalatérské práce →</a>
+      </div>
+    </section>
+
+    <!-- ============ FAQ (poslední sekce) ============ -->
+    <section class="faq section section--soft" id="faq">
       <div class="container">
         <div class="section__head">
-          <p class="section__eyebrow">Krok za krokem</p>
-          <h2 class="section__title">Sledujte, jak dům<br><span class="accent">roste pod rukama</span></h2>
-          <p class="section__lead build__hint">Pokračujte ve scrollování — dům se postaví sám.</p>
-          <div class="build__toggle" id="buildToggle">
-            <button type="button" class="is-active" data-mode="drevo">Dřevostavba</button>
-            <button type="button" data-mode="zdeny">Zděný dům</button>
-          </div>
+          <p class="section__eyebrow">Časté dotazy</p>
+          <h2 class="section__title">Co lidi nejčastěji<br><span class="accent">řeší před stavbou</span></h2>
         </div>
-      </div>
-
-      <div class="build__stage" id="buildStage">
-        <div class="container build__layout">
-          <div class="build__house-wrap">
-            <svg viewBox="0 0 480 360" class="iso-house iso-house--build" id="buildHouse" aria-hidden="true"></svg>
-          </div>
-          <ol class="build__phases" id="buildPhases"></ol>
+        <div class="faq__list">
+          <details class="faq__item" open><summary>Kolik bude stát můj dům?<span class="faq__icon"></span></summary><div class="faq__a"><p>Orientační cenu si spočítáte za minutu v naší kalkulačce. Pevnou cenu dostanete písemně před podpisem smlouvy — a ta platí. Žádné položky navíc během stavby.</p></div></details>
+          <details class="faq__item"><summary>Jak dlouho stavba trvá?<span class="faq__icon"></span></summary><div class="faq__a"><p>Dřevostavba je obvykle rychlejší než zděný dům. Konkrétní termín dostanete v harmonogramu a v jeho průběhu vám posíláme foto-reporty ze stavby. <span class="todo-chip">termíny upřesníme</span></p></div></details>
+          <details class="faq__item"><summary>Zařídíte projekt a stavební povolení?<span class="faq__icon"></span></summary><div class="faq__a"><p>Ano. Stavíme na klíč — od první myšlenky přes projekt a povolení až po předání klíčů. Nemusíte koordinovat víc firem ani úřady.</p></div></details>
+          <details class="faq__item"><summary>Pomůžete s pozemkem a financováním?<span class="faq__icon"></span></summary><div class="faq__a"><p>Ano. Pokud ještě nemáte pozemek nebo řešíte hypotéku, propojíme vás s prověřenými partnery. Stačí to označit v poptávce.</p></div></details>
+          <details class="faq__item"><summary>Jakou dáváte záruku?<span class="faq__icon"></span></summary><div class="faq__a"><p>Za odvedenou práci ručíme a po předání jsme k dispozici. <span class="todo-chip">délku záruky doplníme</span></p></div></details>
+          <details class="faq__item"><summary>Kde stavíte a můžu vidět vaše stavby naživo?<span class="faq__icon"></span></summary><div class="faq__a"><p>Působíme v Plzni a okolí. Naše realizace si po domluvě můžete prohlédnout naživo — věříme tomu, co stavíme.</p></div></details>
         </div>
-      </div>
-    </section>
-
-    <!-- ============ SKLADBA STĚN A PODLAH (3. signature vizualizace) ============ -->
-    <section class="build skladby section section--soft" id="skladby">
-      <div class="container">
-        <div class="section__head">
-          <p class="section__eyebrow">Z čeho je váš dům</p>
-          <h2 class="section__title">Skladba stěn<br><span class="accent">a&nbsp;podlah</span></h2>
-          <p class="section__lead build__hint">Scrollujte — jednotlivé vrstvy se naskládají na sebe.</p>
-          <div class="build__toggle" id="wallToggle">
-            <button type="button" class="is-active" data-mode="stena-otevrena">Stěna · otevřená</button>
-            <button type="button" data-mode="stena-uzavrena">Stěna · uzavřená</button>
-            <button type="button" data-mode="podlaha">Podlaha</button>
-          </div>
+        <div class="faq__cta">
+          <p>Nenašli jste odpověď nebo chcete cenovou nabídku?</p>
+          <a href="kontakt.html" class="btn btn--primary">Nezávazná poptávka</a>
         </div>
-      </div>
-
-      <div class="build__stage" id="wallStage">
-        <div class="container build__layout">
-          <div class="build__house-wrap">
-            <svg viewBox="0 0 480 360" class="iso-house iso-house--build wall-svg" id="wallSvg" aria-hidden="true"></svg>
-            <p class="skladby__note" id="wallNote"></p>
-          </div>
-          <ol class="build__phases" id="wallPhases"></ol>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ PROČ MY ============ -->
-    <section class="why section section--navy" id="proc-my">
-      <div class="container">
-        <div class="why__grid">
-          <div class="why__content">
-            <p class="section__eyebrow section__eyebrow--light">Proč STAGNUM</p>
-            <h2 class="section__title">Jsme rodinná firma.<br><span class="accent-teal">Stavíme, jako bychom stavěli sobě.</span></h2>
-            <p class="why__text">Na Plzeňsku stavíme dřevostavby, zděné domy a rekonstruujeme byty. Bez anonymních obchodníků — od první schůzky po předání klíčů jednáte se stejným člověkem.</p>
-
-            <div class="why__points">
-              <div class="why-point">
-                <div class="why-point__num">01</div>
-                <div><h4>Jednáte přímo s&nbsp;tím, kdo staví</h4><p>Žádné call centrum ani prodejce na provizi. Stálý český tým, který si práci nepředává mezi deseti lidmi.</p></div>
-              </div>
-              <div class="why-point">
-                <div class="why-point__num">02</div>
-                <div><h4>Vše od myšlenky po klíče</h4><p>Zajistíme projekt, povolení i stavbu. A když je potřeba, pomůžeme i&nbsp;s&nbsp;pozemkem a&nbsp;financováním.</p></div>
-              </div>
-              <div class="why-point">
-                <div class="why-point__num">03</div>
-                <div><h4>Transparentní cena</h4><p>Orientační cenu si spočítáte za minutu. Pevnou dostanete písemně před podpisem — a&nbsp;platí.</p></div>
-              </div>
-            </div>
-
-            <a href="#kontakt" class="btn btn--primary why__btn">Domluvit schůzku</a>
-          </div>
-
-          <figure class="why__visual">
-            <img src="media/viz/navrh.jpg" alt="Návrh stavby — práce s projektem" loading="lazy">
-            <figcaption>Každý projekt řešíme do detailu — od prvního návrhu po výběr materiálů.</figcaption>
-          </figure>
-        </div>
-
-        <!-- Partneři / dodavatelé -->
-        <div class="partners">
-          <p class="partners__label">Stavíme z&nbsp;materiálů prověřených dodavatelů</p>
-          <div class="partners__row">
-            <span>DEK</span><span>Senesi</span><span>KV&nbsp;Elektro</span><span>Ptáček</span>
-            <span class="todo-chip">loga doplníme</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ REALIZACE ============ -->
-    <section class="refs section" id="realizace">
-      <div class="container">
-        <div class="section__head">
-          <p class="section__eyebrow">Realizace</p>
-          <h2 class="section__title">Naše práce mluví<br><span class="accent">za nás</span></h2>
-          <p class="section__lead">Každou stavbu si můžete prohlédnout naživo. Fotografie a&nbsp;videa našich realizací průběžně doplňujeme. <span class="todo-chip">vlastní fotky — focení do měsíce</span></p>
-        </div>
-
-        <div class="refs__grid">
-          <figure class="ref-card">
-            <div class="ref-card__img"><img src="media/viz/realizace-drevo.jpg" alt="Dřevostavba" loading="lazy">
-              <span class="ref-card__tag">Dřevostavba</span></div>
-            <figcaption><h4>Dřevostavba na klíč</h4><p>Nízkoenergetický dům od základové desky po předání klíčů.</p></figcaption>
-          </figure>
-          <figure class="ref-card">
-            <div class="ref-card__img"><img src="media/viz/realizace-zdeny.jpg" alt="Zděný dům" loading="lazy">
-              <span class="ref-card__tag">Zděná stavba</span></div>
-            <figcaption><h4>Zděná novostavba</h4><p>Developerský projekt ve vlastní režii — důkaz, že řemeslu rozumíme od základů.</p></figcaption>
-          </figure>
-          <figure class="ref-card">
-            <div class="ref-card__img"><img src="media/viz/kuchyne-po.jpg" alt="Kuchyně po rekonstrukci" loading="lazy">
-              <span class="ref-card__tag">Rekonstrukce</span></div>
-            <figcaption><h4>Rekonstrukce bytu</h4><p>Kompletní proměna jádra i&nbsp;kuchyně. Hotovo v&nbsp;dohodnutém termínu.</p></figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ CTA BANNER ============ -->
-    <section class="banner">
-      <div class="container banner__inner">
-        <svg viewBox="0 0 200 190" class="banner__house" aria-hidden="true"><use href="#puzzleHouse"></use></svg>
-        <h2>Sníte o vlastním bydlení?<br>Pojďme ho postavit.</h2>
-        <p>První schůzka je zdarma a&nbsp;k&nbsp;ničemu vás nezavazuje. Každému domu se věnujeme naplno.</p>
-        <a href="#kontakt" class="btn btn--light">Chci nezávaznou poptávku</a>
-      </div>
-    </section>
-
-    <!-- ============ KONTAKT ============ -->
-    <section class="contact section" id="kontakt">
-      <div class="container">
-        <div class="contact__grid">
-          <div class="contact__info">
-            <p class="section__eyebrow">Kontakt</p>
-            <h2 class="section__title">Ozvěte se nám.<br><span class="accent">Odpovíme do 48 hodin.</span></h2>
-
-            <div class="contact__items">
-              <a href="tel:+420733420275" class="contact-item">
-                <div class="contact-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-                <div><small>Zavolejte nám</small><strong>733 420 275</strong><strong>604 528 704</strong></div>
-              </a>
-              <a href="mailto:info@stagnum.cz" class="contact-item">
-                <div class="contact-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></div>
-                <div><small>Napište nám</small><strong>info@stagnum.cz</strong></div>
-              </a>
-              <div class="contact-item">
-                <div class="contact-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
-                <div><small>Najdete nás</small><strong>Slovanská 1404/191, Plzeň</strong></div>
-              </div>
-            </div>
-          </div>
-
-          <!--
-            TODO-KLIENT: napojení formuláře.
-            Zatím jen UI — po odeslání se zobrazí toast.
-            Později napojit lead na e-mail info@stagnum.cz / aplikaci s automatickým
-            potvrzovacím e-mailem zákazníkovi. Checkboxy (pozemek / financování) =
-            předání leadu partnerům (realitka / finanční poradce).
-          -->
-          <form class="contact__form" id="contactForm">
-            <h3>Nezávazná poptávka</h3>
-            <p class="contact__form-note">Ozveme se do 48 hodin. Schůzka i&nbsp;kalkulace jsou zdarma.</p>
-            <div class="form-row">
-              <label>Jméno a&nbsp;příjmení<input type="text" name="name" placeholder="Jan Novák" required></label>
-              <label>Telefon<input type="tel" name="phone" placeholder="777 123 456" required></label>
-            </div>
-            <label>O co máte zájem?
-              <select name="service">
-                <option>Dřevostavba na klíč</option>
-                <option>Zděný dům na klíč</option>
-                <option>Rekonstrukce bytu</option>
-                <option>Voda / topení / elektro</option>
-                <option>Nevím přesně — poraďte mi</option>
-              </select>
-            </label>
-            <label>Zpráva<textarea name="message" rows="3" placeholder="Krátce popište, co plánujete…"></textarea></label>
-            <div class="form-checks">
-              <label class="check"><input type="checkbox" name="plot"><span>Mám vlastní pozemek</span></label>
-              <label class="check"><input type="checkbox" name="finance"><span>Chci pomoct s&nbsp;financováním</span></label>
-            </div>
-            <button type="submit" class="btn btn--primary btn--full">Odeslat poptávku</button>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ INSTALACE (stručná podsekce, jen proklik z menu) ============ -->
-    <section class="instal" id="instalace">
-      <div class="container instal__inner">
-        <div>
-          <h3>Voda · topení · elektro</h3>
-          <p>Firma vyrostla z&nbsp;instalatérského řemesla, takže vodu, topení i&nbsp;elektroinstalace zvládneme jako součást stavby nebo rekonstrukce. Potřebujete jen tyhle práce? Ozvěte se.</p>
-        </div>
-        <a href="#kontakt" class="btn btn--ghost-dark">Poptat instalatérské práce</a>
       </div>
     </section>
 
   </main>
 
-  <!-- ============ FOOTER ============ -->
-  <footer class="footer">
-    <div class="container footer__inner">
-      <div class="footer__brand">
-        <svg viewBox="0 0 200 190" class="footer__logo" aria-hidden="true"><use href="#puzzleHouse"></use></svg>
-        <div>
-          <strong>STAGNUM s.r.o.</strong>
-          <span>for better living</span>
-        </div>
-      </div>
-      <div class="footer__col">
-        <span>Slovanská 1404/191, Plzeň</span>
-        <span>IČO: 10914340 &nbsp;·&nbsp; DIČ: CZ10914340</span>
-        <span>Dřevostavby · zděné domy · rekonstrukce</span>
-      </div>
-      <div class="footer__col">
-        <a href="tel:+420733420275">733 420 275</a>
-        <a href="tel:+420604528704">604 528 704</a>
-        <a href="mailto:info@stagnum.cz">info@stagnum.cz</a>
-      </div>
-      <div class="footer__col footer__social">
-        <!-- TODO-KLIENT: doplnit odkazy na FB/IG (profily se zakládají) -->
-        <a href="#" aria-label="Facebook">Facebook</a>
-        <a href="#" aria-label="Instagram">Instagram</a>
-      </div>
-    </div>
-    <div class="footer__bottom">
-      <span>© 2026 STAGNUM s.r.o. — Plzeň a&nbsp;okolí · www.stagnum.cz</span>
-    </div>
-  </footer>
-
-  <!-- Toast -->
-  <div class="toast" id="toast" role="status">✓ Děkujeme, ozveme se do 48 hodin.</div>
-
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <button class="lightbox__close" id="lightboxClose" aria-label="Zavřít video">✕</button>
-    <div class="lightbox__inner">
-      <video id="lightboxVideo" src="media/rekonstrukce-bytu.mp4" controls playsinline preload="none"></video>
-      <p>Kompletní rekonstrukce bytu — před a&nbsp;po</p>
-    </div>
-  </div>
+  <div data-layout="footer"></div>
 
   <script src="js/vendor/gsap.min.js"></script>
   <script src="js/vendor/ScrollTrigger.min.js"></script>
   <script src="js/vendor/lenis.min.js"></script>
   <script src="js/iso-house.js"></script>
   <script src="js/wall.js"></script>
+  <script src="js/layout.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

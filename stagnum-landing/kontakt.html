@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakt a nezávazná poptávka | STAGNUM</title>
+  <meta name="description" content="Ozvěte se nám — nezávazná poptávka stavby nebo rekonstrukce. STAGNUM, Slovanská 1404/191, Plzeň. Odpovíme do 48 hodin.">
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="kontakt">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><g id="puzzleHouse">
+    <path d="M101.7 16 L174 88 L101.7 88 Z" fill="currentColor"/>
+    <rect x="26" y="91.5" width="72.3" height="86.5" fill="currentColor"/>
+    <path d="M98.3 16 L98.3 88 L26 88 Z" fill="currentColor"/>
+    <rect x="101.7" y="91.5" width="72.3" height="86.5" fill="currentColor"/>
+  </g></defs></svg>
+
+  <div data-layout="nav"></div>
+
+  <main>
+    <section class="contact section contact--page" id="kontakt">
+      <div class="container">
+        <div class="contact__grid">
+          <div class="contact__info">
+            <p class="section__eyebrow">Nezávazná poptávka</p>
+            <h1 class="section__title">Ozvěte se nám.<br><span class="accent">Odpovíme do 48 hodin.</span></h1>
+            <p class="section__lead">Stavba, rekonstrukce nebo jen dotaz? Napište nám — schůzka i&nbsp;orientační kalkulace jsou zdarma a&nbsp;nezávazné.</p>
+            <div class="contact__items">
+              <a href="tel:+420733420275" class="contact-item"><div class="contact-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><small>Zavolejte nám</small><strong>733 420 275</strong><strong>604 528 704</strong></div></a>
+            <a href="mailto:info@stagnum.cz" class="contact-item"><div class="contact-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></div><div><small>Napište nám</small><strong>info@stagnum.cz</strong></div></a>
+              <div class="contact-item"><div class="contact-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div><div><small>Najdete nás</small><strong>Slovanská 1404/191, Plzeň</strong></div></div>
+            </div>
+            <div class="trust-badges">
+              <span>✓ Pojištěná firma <span class="todo-chip">ověřit</span></span>
+              <span>✓ Záruka na práci</span>
+              <span>✓ Pevná cena předem</span>
+            </div>
+          </div>
+
+          <!-- TODO-KLIENT: napojit lead na info@stagnum.cz / aplikaci s potvrzovacím mailem -->
+          <form class="contact__form" id="contactForm">
+            <h3>Nezávazná poptávka</h3>
+            <p class="contact__form-note">Ozveme se do 48 hodin. Schůzka i&nbsp;kalkulace jsou zdarma.</p>
+            <div class="form-row">
+              <label>Jméno a&nbsp;příjmení<input type="text" name="name" placeholder="Jan Novák" required></label>
+              <label>Telefon<input type="tel" name="phone" placeholder="777 123 456" required></label>
+            </div>
+            <label>O co máte zájem?
+              <select name="service">
+                <option>Dřevostavba na klíč</option>
+                <option>Zděný dům na klíč</option>
+                <option>Rekonstrukce bytu</option>
+                <option>Voda / topení / elektro</option>
+                <option>Nevím přesně — poraďte mi</option>
+              </select>
+            </label>
+            <label>Zpráva<textarea name="message" rows="3" placeholder="Krátce popište, co plánujete…"></textarea></label>
+            <div class="form-checks">
+              <label class="check"><input type="checkbox" name="plot"><span>Mám vlastní pozemek</span></label>
+              <label class="check"><input type="checkbox" name="finance"><span>Chci pomoct s&nbsp;financováním</span></label>
+            </div>
+            <p class="form-consent">Odesláním souhlasíte se zpracováním osobních údajů dle <a href="ochrana-osobnich-udaju.html" target="_blank" rel="noopener">Zásad ochrany osobních údajů</a>.</p>
+            <button type="submit" class="btn btn--primary btn--full">Odeslat poptávku</button>
+            <ul class="form-trust"><li>Nezávazné</li><li>Odpovíme do 48&nbsp;h</li><li>Konzultace zdarma</li></ul>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAPA -->
+    <section class="mapsec">
+      <div class="container">
+        <div class="section__head section__head--left">
+          <p class="section__eyebrow">Kde nás najdete</p>
+          <h2 class="section__title">Plzeň a&nbsp;okolí <span class="accent">do 50&nbsp;km</span></h2>
+          <p class="section__lead">Sídlíme na adrese Slovanská 1404/191, Plzeň. Stavíme v&nbsp;Plzeňském kraji a&nbsp;okolí.</p>
+        </div>
+        <div class="mapsec__frame">
+          <iframe title="Mapa — STAGNUM Plzeň" src="https://maps.google.com/maps?q=Slovansk%C3%A1%201404%2F191%20Plze%C5%88&z=14&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div data-layout="footer"></div>
+
+  <script src="js/vendor/gsap.min.js"></script>
+  <script src="js/vendor/ScrollTrigger.min.js"></script>
+  <script src="js/vendor/lenis.min.js"></script>
+  <script src="js/iso-house.js"></script>
+  <script src="js/wall.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

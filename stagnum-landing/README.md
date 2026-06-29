@@ -48,15 +48,28 @@ media/rekonstrukce-nahled.mp4  – odlehčený náhled do karty (6 MB)
 media/poster.jpg               – poster náhledu (video se načítá až při zobrazení)
 ```
 
-## Sekce webu
+## Struktura (multi-page)
+
+- **`index.html`** — krátká přehledová domovská: hero (+ social proof) → **3 karty služeb** → proč my + partneři → stat strip → recenze (karusel) → realizace → kalkulačka → FAQ → instalace strip (voda/topení/elektro) → kontakt.
+- **`drevostavby.html` · `zdene-domy.html` · `rekonstrukce.html`** — podstránky služeb (šablona): hero → karusel benefitů → **ruční animace stavby** (dřevo/zděný, klik na fáze + šipky) / video (rekonstrukce) → skladba stěn/podlah → galerie → CTA.
+- **`obchodni-podminky.html` · `ochrana-osobnich-udaju.html`** — právní (návrhy).
+- **Sdílené nav + patička** injektuje `js/layout.js` (jeden zdroj). `js/main.js` je page-aware (běží jen co existuje). Nav bez „Domů" (logo = domů).
+- **Animace domu**: `iso-house.js` má styl `drevo` (antracit + svislé latě) / `zdeny` (terakota + cihlový sokl), ovládá se ručně (žádný scroll/autoplay). Skladba: `wall.js` (statický řez, hover propojení).
+
+## Sekce webu (legacy popis jednostránky)
 
 Hero → Služby intro → **Dřevostavby** (hero, tmavá) → **Zděné domy** (hero, světlá) →
 **Rekonstrukce** (hero + postup + video před/po + reference) → Kalkulačka →
-Animace stavby (přepínač dřevo/zděný) → **Skladba stěn a podlah** (3. scroll-animace) →
-Proč my + partneři → Realizace → Kontakt (formulář) → Instalace.
+**Jak a z čeho stavíme** (jedna sekce s taby) → Proč my + partneři → Realizace →
+**FAQ** → Kontakt (formulář + souhlas GDPR) → Instalace.
 
-**3 signature scroll-vizualizace:** skládání domu (dřevo + zděný, `iso-house.js`) a
-skladba stěn/podlah (`wall.js`). Rekonstrukce řešena videem, ne animací.
+**Sekce „Jak a z čeho stavíme"** (`#stavime`) sloučila do jedné kompaktní sekce dřívější
+dvě dlouhé scroll-animace. Taby: Stavba dřevostavby / Stavba zděného domu (dům se přehraje
+po výběru, `iso-house.js`) · Skladba stěny / podlahy (statický čitelný řez s číslovanými
+vrstvami + hover propojení řez↔seznam, `wall.js`). Rekonstrukce = video, ne animace.
+
+**Právní stránky:** `obchodni-podminky.html`, `ochrana-osobnich-udaju.html` (styl `css/legal.css`),
+odkazované z patičky. **Pracovní návrhy — nutná kontrola a doplnění dat (viz `[DOPLNIT]`).**
 
 ## TODO-KLIENT (placeholdery — hledej `TODO-KLIENT` / štítky „doplníme" v kódu)
 

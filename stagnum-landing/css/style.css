@@ -674,15 +674,25 @@ a.contact-item:hover { transform: translateX(8px); box-shadow: var(--shadow-md);
    FOOTER
    ============================================================ */
 .footer { background: var(--navy-deep); color: #b9d2e4; }
-.footer__inner { display: flex; flex-wrap: wrap; align-items: center; gap: 44px; padding-top: 52px; padding-bottom: 42px; }
-.footer__brand { display: flex; align-items: center; gap: 16px; margin-right: auto; }
-.footer__logo { width: 44px; color: var(--teal); }
+.footer__inner {
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.1fr;
+  gap: 48px; align-items: start;
+  padding-top: 60px; padding-bottom: 48px;
+}
+.footer__col--brand { max-width: 340px; }
+.footer__brand { display: flex; align-items: center; gap: 14px; }
+.footer__logo { width: 42px; color: var(--teal); flex-shrink: 0; }
 .footer__brand strong { display: block; color: #fff; font-size: 16.5px; letter-spacing: 0.1em; font-family: var(--font-head); }
 .footer__brand span { font-size: 10.5px; letter-spacing: 0.26em; text-transform: uppercase; color: var(--teal); }
-.footer__col { display: flex; flex-direction: column; gap: 6px; font-size: 14px; }
-.footer__col a { transition: color 0.25s; }
+.footer__desc { margin-top: 16px; font-size: 13.5px; line-height: 1.7; color: #8fa9be; }
+.footer__col { display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
+.footer__col a { transition: color 0.25s; width: fit-content; }
 .footer__col a:hover { color: var(--teal); }
-.footer__h { color: #fff; font-family: var(--font-head); font-size: 13px; letter-spacing: 0.05em; margin-bottom: 4px; }
+.footer__h {
+  color: #fff; font-family: var(--font-head); font-size: 12px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 8px;
+  padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.12);
+}
 .footer__bottom {
   border-top: 1px solid rgba(255,255,255,0.09); padding: 18px 24px;
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 20px;
@@ -1034,3 +1044,13 @@ body[data-page="kontakt"] .header { background: rgba(0,42,82,0.92); backdrop-fil
 /* prvky nad filtrem */
 .post__badge, .howto__num, .ref-card__tag, .live__flag, .gallery__item figcaption,
 .pillar__media .reno__video-badge { z-index: 2; }
+
+/* footer responsive */
+@media (max-width: 1024px) {
+  .footer__inner { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .footer__col--brand { grid-column: 1 / -1; max-width: 480px; }
+}
+@media (max-width: 640px) {
+  .footer__inner { grid-template-columns: 1fr; gap: 30px; }
+  .footer__bottom { flex-direction: column; align-items: flex-start; gap: 10px; }
+}

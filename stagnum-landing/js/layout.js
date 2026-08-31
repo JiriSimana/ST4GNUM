@@ -63,9 +63,12 @@
   const footer = `
   <footer class="footer">
     <div class="container footer__inner">
-      <div class="footer__brand">
-        <svg viewBox="0 0 200 190" class="footer__logo" aria-hidden="true"><use href="#puzzleHouse"></use></svg>
-        <div><strong>STAGNUM s.r.o.</strong><span>for better living</span></div>
+      <div class="footer__col footer__col--brand">
+        <div class="footer__brand">
+          <svg viewBox="0 0 200 190" class="footer__logo" aria-hidden="true"><use href="#puzzleHouse"></use></svg>
+          <div><strong>STAGNUM s.r.o.</strong><span>for better living</span></div>
+        </div>
+        <p class="footer__desc">Rodinná stavební firma z&nbsp;Plzně. Dřevostavby a&nbsp;zděné domy na klíč, kompletní rekonstrukce bytů — od první myšlenky po předání klíčů.</p>
       </div>
       <div class="footer__col">
         <strong class="footer__h">Služby</strong>
@@ -79,12 +82,13 @@
         <a href="tel:+420733420275">733 420 275</a>
         <a href="tel:+420604528704">604 528 704</a>
         <a href="mailto:info@stagnum.cz">info@stagnum.cz</a>
+        <a href="${kontaktHref}">Nezávazná poptávka →</a>
       </div>
       <div class="footer__col">
         <strong class="footer__h">Firma</strong>
-        <span>STAGNUM s.r.o.</span>
         <span>Slovanská 1404/191, Plzeň</span>
-        <span>IČO: 10914340 &nbsp;·&nbsp; DIČ: CZ10914340</span>
+        <span>IČO: 10914340</span>
+        <span>DIČ: CZ10914340</span>
         <span>Po–Pá 8–18 <span class="todo-chip">hodiny upřesnit</span></span>
       </div>
     </div>

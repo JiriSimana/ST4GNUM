@@ -18,17 +18,25 @@
     leaf: '#86B68B', trunk: '#8A6238',
   };
 
-  /* styly stavby */
+  /* styly stavby
+     layer1: 'hydro' = tenká černá hydroizolace (dle klienta)
+             'rost'  = dřevěný podlahový rošt (suchá skladba na pasech)
+     foundation: 'deska' | 'pasy' (2 pruhy základů po stranách)          */
   const STYLES = {
     drevo: {
       wallLit: '#EAD3A6', wallShade: '#D6BC85', wallLine: '#BE9A66',
       beam: '#A8763E', roof: '#2C3A45', roofEdge: '#46545F',
-      cladding: 'vertical', base: null,
+      cladding: 'vertical', base: null, foundation: 'deska', layer1: 'hydro',
+    },
+    'drevo-pasy': {
+      wallLit: '#EAD3A6', wallShade: '#D6BC85', wallLine: '#BE9A66',
+      beam: '#A8763E', roof: '#2C3A45', roofEdge: '#46545F',
+      cladding: 'vertical', base: null, foundation: 'pasy', layer1: 'rost',
     },
     zdeny: {
       wallLit: '#F2F1EC', wallShade: '#E1DFD7', wallLine: '#D3CBBE',
       beam: '#8A949C', roof: '#A6503A', roofEdge: '#BE6A54',
-      cladding: 'brick', base: '#B6634A',
+      cladding: 'brick', base: '#B6634A', foundation: 'deska', layer1: 'hydro',
     },
   };
 
@@ -45,19 +53,37 @@
     svg.innerHTML = '';
     const layers = [];
 
-    /* 0 · ZÁKLADOVÁ DESKA */
+    /* 0 · ZÁKLAD — deska, nebo 2 pasy po stranách */
     const g0 = el('g', { 'data-layer': 0 });
-    g0.appendChild(poly('240,135 390,210 240,285 90,210', S.concrete));
-    g0.appendChild(poly('90,210 240,285 240,301 90,226', S.concreteL));
-    g0.appendChild(poly('240,285 390,210 390,226 240,301', S.concreteR));
-    layers.push(g0);
+    if (S.foundation === 'pasy') {
+      /* zadní pás (podél hrany L–T) */
+      g0.appendChild(poly('117,223.5 267,148.5 240,135 90,210', S.concrete));
+      g0.appendChild(poly('90,210 117,223.5 117,239.5 90,226', S.concreteL));
+      /* přední pás (podél hrany B–R) */
+      g0.appendChild(poly('240,285 390,210 363,196.5 213,271.5', S.concrete));
+      g0.appendChild(poly('213,271.5 240,285 240,301 213,287.5', S.concreteL));
+      g0.appendChild(poly('240,285 390,210 390,226 240,301', S.concreteR));
+      layers.push(g0);
+    } else {
+      g0.appendChild(poly('240,135 390,210 240,285 90,210', S.concrete));
+      g0.appendChild(poly('90,210 240,285 240,301 90,226', S.concreteL));
+      g0.appendChild(poly('240,285 390,210 390,226 240,301', S.concreteR));
+      layers.push(g0);
+    }
 
-    /* 1 · PODLAHA */
+    /* 1 · HYDROIZOLACE (tenká černá vrstva) / PODLAHOVÝ ROŠT (suchá skladba) */
     const g1 = el('g', { 'data-layer': 1 });
-    g1.appendChild(poly('240,125 390,200 240,275 90,200', S.floor));
-    g1.appendChild(poly('90,200 240,275 240,285 90,210', S.floorL));
-    g1.appendChild(poly('240,275 390,200 390,210 240,285', S.floorR));
-    for (let i = 1; i < 5; i++) { const t = i / 5; g1.appendChild(line(240 - 150 * t, 125 + 75 * t, 390 - 150 * t, 200 + 75 * t, S.floorR, 1.2)); }
+    if (S.layer1 === 'hydro') {
+      const HY = '#24282D', HYs = '#15181C';
+      g1.appendChild(poly('240,125 390,200 240,275 90,200', HY));
+      g1.appendChild(poly('90,200 240,275 240,279 90,204', HYs));
+      g1.appendChild(poly('240,275 390,200 390,204 240,279', HYs));
+    } else {
+      g1.appendChild(poly('240,125 390,200 240,275 90,200', S.floor));
+      g1.appendChild(poly('90,200 240,275 240,285 90,210', S.floorL));
+      g1.appendChild(poly('240,275 390,200 390,210 240,285', S.floorR));
+      for (let i = 1; i < 5; i++) { const t = i / 5; g1.appendChild(line(240 - 150 * t, 125 + 75 * t, 390 - 150 * t, 200 + 75 * t, S.floorR, 1.2)); }
+    }
     layers.push(g1);
 
     /* 3 · PŘÍČKY (uvnitř) */

@@ -67,7 +67,7 @@
             </div>
           </article>
           <article class="post">
-            <div class="post__media"><img src="media/viz/realizace-drevo.jpg" alt="Rychlá a přesná výstavba" loading="lazy"><span class="post__badge">Hotovo dřív</span></div>
+            <div class="post__media"><img src="media/real/domek-hory2.jpg" alt="Rychlá a přesná výstavba — vizualizace" loading="lazy"><span class="post__badge">Hotovo dřív</span></div>
             <div class="post__body">
               <h3>Postaveno rychle a&nbsp;přesně</h3>
               <p>Suchý proces a&nbsp;přesná příprava zkracují dobu stavby. Vy se nastěhujete dřív.</p>
@@ -116,6 +116,10 @@
           <p class="section__eyebrow">Stavba krok za krokem</p>
           <h2 class="section__title">Postavte si dům<br><span class="accent">krok za krokem</span></h2>
           <p class="section__lead">Klikněte na fázi (nebo šipky) — uvidíte přesně, jak dům vzniká.</p>
+          <div class="build__toggle" id="buildVariant">
+            <button class="is-active" type="button" data-mode="drevo">Na základové desce</button>
+            <button type="button" data-mode="drevo-pasy">Suchá skladba · pasy</button>
+          </div>
         </div>
         <div class="stavime__stage">
           <div class="stavime__viz">
@@ -131,25 +135,27 @@
       </div>
     </section>
 
-    <!-- SKLADBA -->
+    <!-- SKLADBA — reálné řezy konstrukcí -->
     <section class="section" id="skladba">
       <div class="container">
         <div class="section__head">
           <p class="section__eyebrow">Z čeho je váš dům</p>
-          <h2 class="section__title">Skladba stěny<br><span class="accent">a&nbsp;podlahy</span></h2>
-          <p class="section__lead">Najeďte na vrstvu — propojí se s popisem. <span class="todo-chip">skladby dle klienta</span></p>
-          <div class="build__toggle" id="wallSwitch">
-            <button class="is-active" type="button" data-mode="stena-otevrena">Stěna · otevřená</button>
-            <button type="button" data-mode="stena-uzavrena">Stěna · uzavřená</button>
-            <button type="button" data-mode="podlaha">Podlaha</button>
-          </div>
+          <h2 class="section__title">Skladby našich<br><span class="accent">konstrukcí</span></h2>
+          <p class="section__lead">Skutečné skladby, které používáme — s&nbsp;popisem každé vrstvy a&nbsp;tloušťkami. Žádná tajemství.</p>
         </div>
-        <div class="stavime__stage">
-          <div class="stavime__viz">
-            <svg viewBox="0 0 480 360" id="wallSvg" aria-hidden="true"></svg>
-            <p class="stavime__caption" id="wallNote"></p>
+        <div class="rezy" data-rezy>
+          <div class="build__toggle rezy__toggle">
+            <button class="is-active" type="button" data-img="media/real/rez-zed-otevrena.jpg" data-cap="Obvodová stěna — difuzně otevřená. Stěna „dýchá", vlhkost prochází ven.">Stěna · otevřená</button>
+            <button type="button" data-img="media/real/rez-zed-uzavrena.jpg" data-cap="Obvodová stěna — difuzně uzavřená. Parozábrana na teplé straně konstrukce.">Stěna · uzavřená</button>
+            <button type="button" data-img="media/real/rez-podlaha-deska.jpg" data-cap="Skladba podlahy — na betonové desce.">Podlaha · deska</button>
+            <button type="button" data-img="media/real/rez-podlaha-pasy.jpg" data-cap="Skladba podlahy — na betonových pasech.">Podlaha · pasy</button>
+            <button type="button" data-img="media/real/rez-strecha-otevrena.jpg" data-cap="Střecha s přesahem — difuzně otevřená skladba.">Střecha · otevřená</button>
+            <button type="button" data-img="media/real/rez-strecha-uzavrena.jpg" data-cap="Střecha s přesahem — difuzně uzavřená skladba.">Střecha · uzavřená</button>
           </div>
-          <ol class="stavime__list stavime__list--num" id="wallList"></ol>
+          <figure class="rezy__frame">
+            <img id="rezyImg" src="media/real/rez-zed-otevrena.jpg" alt="Řez konstrukcí — skladba s popisem vrstev">
+            <figcaption id="rezyCap">Obvodová stěna — difuzně otevřená. Stěna „dýchá", vlhkost prochází ven.</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -180,12 +186,12 @@
         <div class="section__head">
           <p class="section__eyebrow">Realizace</p>
           <h2 class="section__title">Naše dřevostavby</h2>
-          <p class="section__lead">Fotky a&nbsp;videa našich staveb průběžně doplňujeme. <span class="todo-chip">focení — Karma</span></p>
+          <p class="section__lead">Vizualizace našeho multifunkčního dřevěného boxu — fotky hotových staveb průběžně doplňujeme. <span class="todo-chip">focení — Karma</span></p>
         </div>
         <div class="gallery__grid">
-          <figure class="gallery__item"><img src="media/viz/drevostavba.jpg" alt="Dřevostavba" loading="lazy"><figcaption>Moderní dřevostavba</figcaption></figure>
-          <figure class="gallery__item"><img src="media/viz/realizace-drevo.jpg" alt="Dřevostavba s terasou" loading="lazy"><figcaption>Dřevostavba s&nbsp;terasou</figcaption></figure>
-          <figure class="gallery__item"><img src="media/viz/interier-po.jpg" alt="Interiér na klíč" loading="lazy"><figcaption>Interiér na klíč</figcaption></figure>
+          <figure class="gallery__item"><img src="media/real/domek-hory.jpg" alt="Multifunkční dřevěný box v horách" loading="lazy"><figcaption>Multifunkční dřevěný box — vizualizace</figcaption></figure>
+          <figure class="gallery__item"><img src="media/real/domek-mesto.jpg" alt="Multifunkční dřevěný box ve městě" loading="lazy"><figcaption>Varianta pro město — vizualizace</figcaption></figure>
+          <figure class="gallery__item"><img src="media/real/domek-zima.jpg" alt="Multifunkční dřevěný box v zimě" loading="lazy"><figcaption>Celoroční provoz — vizualizace</figcaption></figure>
         </div>
       </div>
     </section>

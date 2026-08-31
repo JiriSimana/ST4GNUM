@@ -1011,3 +1011,26 @@ a.contact-item:hover { transform: translateX(8px); box-shadow: var(--shadow-md);
 
 /* na světlých podstránkách (kontakt) hlavička rovnou plná — bílý text čitelný */
 body[data-page="kontakt"] .header { background: rgba(0,42,82,0.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); box-shadow: 0 1px 0 rgba(255,255,255,0.08), 0 10px 30px rgba(0,20,40,0.25); }
+
+/* ---------- reálné řezy skladeb (bez filtru — technické podklady) ---------- */
+.rezy { max-width: 900px; margin: 0 auto; }
+.rezy__toggle { flex-wrap: wrap; justify-content: center; margin-bottom: 22px; }
+.rezy__frame { background: #fff; border: 1px solid rgba(0,58,112,0.1); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-md); }
+.rezy__frame img { width: 100%; display: block; }
+.rezy__frame figcaption { padding: 14px 20px; font-size: 14px; color: var(--gray); border-top: 1px solid rgba(0,58,112,0.08); background: var(--bg); }
+
+/* ---------- barevný filtr přes fotky (jednotný navy/teal nádech) ---------- */
+.post__media, .howto__media, .svc-card__img, .ref-card__img, .live__media, .pillar__media, .gallery__item, .why__visual { position: relative; }
+.post__media::after, .howto__media::after, .svc-card__img::after, .ref-card__img::after,
+.live__media::after, .pillar__media::after, .gallery__item::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 1;
+  background: linear-gradient(135deg, rgba(0,58,112,0.22) 0%, rgba(0,58,112,0.06) 55%, rgba(43,168,161,0.12) 100%);
+  mix-blend-mode: multiply;
+}
+.post__media img, .howto__media img, .svc-card__img img, .ref-card__img img,
+.live__media img, .pillar__media img, .gallery__item img, .why__visual img {
+  filter: saturate(0.88) contrast(1.03);
+}
+/* prvky nad filtrem */
+.post__badge, .howto__num, .ref-card__tag, .live__flag, .gallery__item figcaption,
+.pillar__media .reno__video-badge { z-index: 2; }

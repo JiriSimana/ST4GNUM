@@ -17,7 +17,17 @@ $$('a[href^="#"]').forEach((aEl) => aEl.addEventListener('click', () => { const 
 const PHASES = {
   drevo: [
     ['Základová deska', 'Připravíme pozemek a založíme stavbu na přesné betonové desce.'],
-    ['Podlahový rošt', 'Izolovaná dřevěná podlaha drží teplo uvnitř.'],
+    ['Hydroizolace', 'Tenká černá vrstva chrání stavbu proti vlhkosti a radonu.'],
+    ['Stěnové panely', 'Nosné stěny stavíme stojku po stojce, přesně podle projektu.'],
+    ['Příčky a rozvody', 'Vnitřní stěny a instalace vody, topení i elektřiny.'],
+    ['Krov', 'Tesařská konstrukce střechy z poctivého dřeva.'],
+    ['Střecha', 'Krytina, okapy a klempířina. Dům je pod střechou.'],
+    ['Okna a dveře', 'Osazení oken a vstupních dveří. Stavba je uzavřená.'],
+    ['Dokončení a předání', 'Fasáda, detaily, úklid. Přebíráte klíče.'],
+  ],
+  'drevo-pasy': [
+    ['Základové pasy', 'Suchá skladba — dva pruhy základů po stranách domu.'],
+    ['Podlahový rošt', 'Dřevěný rošt položený na základové pasy.'],
     ['Stěnové panely', 'Nosné stěny stavíme stojku po stojce, přesně podle projektu.'],
     ['Příčky a rozvody', 'Vnitřní stěny a instalace vody, topení i elektřiny.'],
     ['Krov', 'Tesařská konstrukce střechy z poctivého dřeva.'],
@@ -27,7 +37,7 @@ const PHASES = {
   ],
   zdeny: [
     ['Základová deska', 'Vybetonujeme základové pasy a nosnou desku.'],
-    ['Hydroizolace', 'Ochrana stavby proti vlhkosti a radonu.'],
+    ['Hydroizolace', 'Tenká černá vrstva chrání stavbu proti vlhkosti a radonu.'],
     ['Obvodové zdivo', 'Vyzdíme nosné obvodové stěny z kvalitních cihel.'],
     ['Příčky a rozvody', 'Vnitřní zdivo a instalace vody, topení i elektřiny.'],
     ['Stropy a krov', 'Stropní konstrukce a tesařský krov střechy.'],
@@ -143,13 +153,9 @@ $$('[data-carousel]').forEach((root) => {
 /* ---------- RUČNÍ STAVBA DOMU (podstránky) ---------- */
 (function manualBuild() {
   const root = $('[data-build]'); if (!root) return;
-  const mode = root.dataset.build; // drevo | zdeny
   const svg = root.querySelector('svg'); const list = $('#buildList'); const label = $('#buildStepLabel');
-  const L = window.renderIsoHouse(svg, mode);
-  const phases = PHASES[mode];
-  list.innerHTML = phases.map(([n, d], i) => `<li data-i="${i}"><span class="stavime__n">${pad(i + 1)}</span><div><strong>${n}</strong><span>${d}</span></div></li>`).join('');
-  const items = [...list.children];
-  let step = L.length - 1;
+  let L = [], items = [], step = 0;
+
   function show(n) {
     step = Math.max(0, Math.min(L.length - 1, n));
     L.forEach((g, i) => gsap.set(g, { opacity: i <= step ? 1 : 0, y: 0 }));
@@ -157,12 +163,28 @@ $$('[data-carousel]').forEach((root) => {
     items.forEach((li, i) => li.classList.toggle('is-active', i === step));
     if (label) label.textContent = (step + 1) + ' / ' + L.length;
   }
-  items.forEach((li, i) => li.addEventListener('click', () => show(i)));
-  $$('[data-step]').forEach((b) => b.addEventListener('click', () => show(step + (+b.dataset.step))));
-  // animované „postavení" při prvním zobrazení (jednorázově, ne scroll)
-  if (prefersReducedMotion) { show(L.length - 1); }
-  else {
+  function setup(mode) {
+    L = window.renderIsoHouse(svg, mode);
+    list.innerHTML = PHASES[mode].map(([n, d], i) => `<li data-i="${i}"><span class="stavime__n">${pad(i + 1)}</span><div><strong>${n}</strong><span>${d}</span></div></li>`).join('');
+    items = [...list.children];
+    items.forEach((li, i) => li.addEventListener('click', () => show(i)));
     show(L.length - 1);
+  }
+
+  setup(root.dataset.build);
+  $$('[data-step]').forEach((b) => b.addEventListener('click', () => show(step + (+b.dataset.step))));
+
+  /* volitelný přepínač varianty založení (deska / pasy) */
+  const variant = $('#buildVariant');
+  if (variant) variant.addEventListener('click', (e) => {
+    const b = e.target.closest('button'); if (!b) return;
+    variant.querySelectorAll('button').forEach((x) => x.classList.remove('is-active'));
+    b.classList.add('is-active');
+    setup(b.dataset.mode);
+  });
+
+  /* animované „postavení" při prvním zobrazení (jednorázově, ne scroll) */
+  if (!prefersReducedMotion) {
     let played = false;
     new IntersectionObserver(([en], io) => {
       if (en.isIntersecting && !played) {
@@ -194,6 +216,19 @@ $$('[data-carousel]').forEach((root) => {
   }
   if (sw) sw.addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; sw.querySelectorAll('button').forEach((x) => x.classList.remove('is-active')); b.classList.add('is-active'); setup(b.dataset.mode); });
   setup('stena-otevrena');
+})();
+
+/* ---------- reálné řezy skladeb (přepínač obrázků) ---------- */
+(function rezy() {
+  const root = $('[data-rezy]'); if (!root) return;
+  const img = $('#rezyImg'), cap = $('#rezyCap');
+  root.querySelector('.rezy__toggle').addEventListener('click', (e) => {
+    const b = e.target.closest('button'); if (!b) return;
+    root.querySelectorAll('button').forEach((x) => x.classList.remove('is-active'));
+    b.classList.add('is-active');
+    img.src = b.dataset.img;
+    if (cap) cap.textContent = b.dataset.cap || '';
+  });
 })();
 
 /* ---------- VIDEO lightbox ---------- */

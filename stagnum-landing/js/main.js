@@ -245,12 +245,44 @@ $$('[data-carousel]').forEach((root) => {
   if (preview) new IntersectionObserver(([en]) => { en.isIntersecting ? preview.play().catch(() => {}) : preview.pause(); }, { threshold: 0.35 }).observe(preview);
 })();
 
-/* ---------- formulář ---------- */
+/* ---------- formulář → POST /api/lead (Resend) ---------- */
 (function form() {
   const f = $('#contactForm'); if (!f) return;
-  f.addEventListener('submit', (e) => {
+  const btn = f.querySelector('button[type="submit"]');
+  const toastEl = $('#toast');
+  function toast(msg, ok = true) {
+    if (!toastEl) return;
+    toastEl.textContent = msg;
+    toastEl.style.background = ok ? '' : '#8a2c2c';
+    toastEl.classList.add('is-visible');
+    setTimeout(() => toastEl.classList.remove('is-visible'), 5200);
+  }
+  f.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const toast = $('#toast'); if (toast) { toast.classList.add('is-visible'); setTimeout(() => toast.classList.remove('is-visible'), 4200); }
-    f.querySelectorAll('input, textarea').forEach((el) => { if (el.type === 'checkbox') el.checked = false; else el.value = ''; });
+    const data = {
+      name: f.name.value.trim(), phone: f.phone.value.trim(),
+      email: (f.email && f.email.value.trim()) || '',
+      service: f.service.value, message: f.message.value.trim(),
+      plot: !!(f.plot && f.plot.checked), finance: !!(f.finance && f.finance.checked),
+      website: (f.website && f.website.value) || '',
+    };
+    const orig = btn.textContent;
+    btn.disabled = true; btn.textContent = 'Odesílám…';
+    try {
+      const r = await fetch('/api/lead', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data),
+      });
+      const j = await r.json().catch(() => ({}));
+      if (r.ok && j.ok) {
+        toast('✓ Děkujeme, poptávku jsme přijali. Ozveme se do 48 hodin.');
+        f.querySelectorAll('input, textarea').forEach((el) => { if (el.type === 'checkbox') el.checked = false; else el.value = ''; });
+      } else {
+        toast('Odeslání se nezdařilo — zavolejte nám prosím na 733 420 275.', false);
+      }
+    } catch {
+      toast('Odeslání se nezdařilo — zavolejte nám prosím na 733 420 275.', false);
+    } finally {
+      btn.disabled = false; btn.textContent = orig;
+    }
   });
 })();

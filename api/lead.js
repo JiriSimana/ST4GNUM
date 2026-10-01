@@ -5,7 +5,7 @@
  * Env proměnné (Vercel → Settings → Environment Variables):
  *   RESEND_API_KEY  – API klíč z resend.com (povinné)
  *   CONTACT_TO      – kam chodí poptávky (default info@stagnum.cz)
- *   CONTACT_FROM    – odesílatel (default STAGNUM <poptavka@stagnum.cz>,
+ *   CONTACT_FROM    – odesílatel (default STAGNUM <info@stagnum.cz>,
  *                     doména musí být ověřená v Resend)
  */
 
@@ -34,7 +34,7 @@ module.exports = async (req, res) => {
   }
 
   const TO = process.env.CONTACT_TO || 'info@stagnum.cz';
-  const FROM = process.env.CONTACT_FROM || 'STAGNUM <poptavka@stagnum.cz>';
+  const FROM = process.env.CONTACT_FROM || 'STAGNUM <info@stagnum.cz>';
 
   const rows = [
     ['Jméno', name], ['Telefon', phone], ['E-mail', email || '—'],

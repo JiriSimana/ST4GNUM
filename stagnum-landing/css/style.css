@@ -1057,3 +1057,8 @@ body[data-page="kontakt"] .header { background: rgba(0,42,82,0.92); backdrop-fil
 
 /* formulář — doplňky */
 .form-opt { font-weight: 400; color: var(--gray); font-size: 12px; }
+
+/* partnerská loga (bílé siluety na navy) */
+.partners__row img { height: 30px; width: auto; max-width: 150px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.72; transition: opacity 0.25s; }
+.partners__row img:hover { opacity: 1; }
+@media (max-width: 640px) { .partners__row img { height: 24px; max-width: 120px; } }

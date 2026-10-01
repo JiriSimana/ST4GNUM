@@ -89,7 +89,7 @@
         <span>Slovanská 1404/191, Plzeň</span>
         <span>IČO: 10914340</span>
         <span>DIČ: CZ10914340</span>
-        <span>Po–Pá 8–18 <span class="todo-chip">hodiny upřesnit</span></span>
+        <span>Po–Pá 8–18</span>
       </div>
     </div>
     <div class="footer__bottom">
